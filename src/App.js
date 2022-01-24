@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 import firebase from 'firebase/app';
@@ -21,7 +21,6 @@ firebase.initializeApp({
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-const analytics = firebase.analytics();
 
 function App() {
   const [user] = useAuthState(auth);
@@ -29,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>💬</h1>
+        <h1>BossElijah's chat</h1>
         <SignOut />
       </header>
 
@@ -66,7 +65,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const query = messagesRef.orderBy('createdAt');
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
@@ -85,15 +84,17 @@ function ChatRoom() {
     });
 
     setFormValue('');
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  });
 
   return (
     <>
       <main>
         {messages &&
           messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-
         <span ref={dummy}></span>
       </main>
 
@@ -105,7 +106,7 @@ function ChatRoom() {
         />
 
         <button type="submit" disabled={!formValue}>
-          🕊️
+          SEND
         </button>
       </form>
     </>
@@ -124,6 +125,7 @@ function ChatMessage(props) {
           src={
             photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'
           }
+          alt="Profile pic"
         />
         <p>{text}</p>
       </div>
