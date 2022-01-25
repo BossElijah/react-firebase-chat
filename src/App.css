@@ -54,7 +54,7 @@ main::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
-form {
+.send-message-form {
   height: 10vh;
   position: fixed;
   bottom: 0;
@@ -65,7 +65,7 @@ form {
   font-size: 1.5rem;
 }
 
-form button {
+.send-message-form button {
   width: 20%;
   background-color: rgb(56, 56, 143);
 }
@@ -99,10 +99,44 @@ button:disabled {
 }
 
 .sign-in {
+  position: relative;
   color: #282c34;
   background: white;
   max-width: 400px;
   margin: 0 auto;
+  margin-bottom: 5rem;
+}
+
+.sign-in::after {
+  position: absolute;
+  content: "";
+  left: -200px;
+  right: -200px;
+  bottom: -60px;
+  height: 2px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.login-page form button {
+  margin: 0 auto;
+}
+
+.login-page label {
+  display: block;
+  color: #fff;
+  font-size: 1.25rem;
+  margin-bottom: .75rem;
+}
+
+.login-page input {
+  width: 500px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.login-page button {
+  display: block;
 }
 
 ul,
@@ -124,26 +158,47 @@ p {
 
 .message {
   display: flex;
-  align-items: center;
+}
+
+.message p {
+  margin-top: 5px;
+  width: fit-content;
 }
 
 .sent {
-  flex-direction: row-reverse;
+  justify-content: end;
 }
 
 .sent p {
   color: white;
   background: #0b93f6;
-  align-self: flex-end;
 }
+
+
+.sent .message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .received p {
   background: #e5e5ea;
   color: black;
 }
 
+.author-details {
+  display: flex;
+  align-items: center;
+  font-size: .75rem;
+}
+
+.received .author-details {
+  justify-content: start;
+}
+
 img {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   margin: 2px 5px;
 }

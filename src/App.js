@@ -43,12 +43,43 @@ function SignIn() {
     auth.signInWithPopup(provider);
   };
 
+  const handleEmailSubmit = e => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    auth.signInWithEmailAndPassword(email, password);
+  };
+
   return (
-    <>
+    <div className="login-page">
       <button className="sign-in" onClick={signInWithGoogle}>
         Sign in with Google
       </button>
-    </>
+
+      <form onSubmit={handleEmailSubmit} id="login-email">
+        <h2
+          style={{
+            color: '#fff',
+            marginTop: '2rem',
+            marginBottom: '2rem',
+            fontSize: '1.75rem'
+          }}
+        >
+          Login with email and password
+        </h2>
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" placeholder="email@example.com…" />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Your secret password…"
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 }
 
@@ -74,13 +105,15 @@ function ChatRoom() {
   const sendMessage = async e => {
     e.preventDefault();
 
-    const { uid, photoURL } = auth.currentUser;
+    const { uid, photoURL, displayName, email } = auth.currentUser;
 
     await messagesRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
-      photoURL
+      photoURL,
+      displayName,
+      email
     });
 
     setFormValue('');
@@ -98,7 +131,7 @@ function ChatRoom() {
         <span ref={dummy}></span>
       </main>
 
-      <form onSubmit={sendMessage}>
+      <form onSubmit={sendMessage} className="send-message-form">
         <input
           value={formValue}
           onChange={e => setFormValue(e.target.value)}
@@ -114,20 +147,32 @@ function ChatRoom() {
 }
 
 function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
+  const { text, uid, photoURL, displayName, email } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (
     <>
       <div className={`message ${messageClass}`}>
-        <img
-          src={
-            photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'
-          }
-          alt="Profile pic"
-        />
-        <p>{text}</p>
+        <div className="message-container">
+          <div className="author-details">
+            <img
+              src={
+                photoURL ||
+                'https://blog.alliedmarketresearch.com/images/user_icon.png'
+              }
+              alt="Profile pic"
+            />
+            <span
+              style={{
+                color: 'white'
+              }}
+            >
+              {displayName || email}
+            </span>
+          </div>
+          <p>{text}</p>
+        </div>
       </div>
     </>
   );
