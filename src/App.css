@@ -160,6 +160,7 @@ p {
   margin-top: 5px;
   width: fit-content;
   text-align: left;
+  word-break: break-word;
 }
 
 .sent {

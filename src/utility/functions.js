@@ -7,6 +7,8 @@ export const findImgUrl = (photoURL, email) => {
     return 'https://cdn.xxl.thumbs.canstockphoto.dk/glade-agerdyrker-eps-vector_csp4325798.jpg';
   } else if (email === 'nathanael@lfpost.dk') {
     return 'https://media.musiciansfriend.com/is/image/MMGS7/2016-Hummingbird-Square-Shoulder-Dreadnought-Acoustic-Electric-Guitar-Heritage-Cherry/J24259000001000-00-1600x1600.jpg';
+  } else if (email === 'simeon@lfpost.dk') {
+    return 'https://lh3.googleusercontent.com/a-/AOh14GgffEPPuoKjp6Twyu9hnNUXM8G4CenTYCbHHLThOg=s96-c';
   } else if (email === 'admin@example.com') {
     return 'https://www.logolynx.com/images/logolynx/s_23/23938578fb8d88c02bc59906d12230f3.png';
   } else {
@@ -20,7 +22,7 @@ export const findDisplayName = (displayName, email) => {
   } else if (email === 'elias@lfpost.dk') {
     return 'Elias';
   } else if (email === 'simeon@lfpost.dk') {
-    return 'Symy';
+    return 'Simeon Joel Kristiansen';
   } else if (email === 'admin@example.com') {
     return 'Site admin';
   } else if (email === 'nathanael@lfpost.dk') {
