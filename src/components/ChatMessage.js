@@ -14,11 +14,7 @@ const ChatMessage = props => {
         <div className="message-container">
           <div className="author-details">
             <img src={findImgUrl(photoURL, email)} alt="Profile pic" />
-            <span
-              style={{
-                color: 'white'
-              }}
-            >
+            <span className="display-name">
               {findDisplayName(displayName, email)}
             </span>
           </div>
