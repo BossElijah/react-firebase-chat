@@ -12,6 +12,8 @@ const ChatMessage = props => {
       return photoURL;
     } else if (email === 'elias@lfpost.dk') {
       return 'https://bosselijah-chat.netlify.app/logo.png';
+    } else if (email === 'joseph@lfpost.dk') {
+      return 'https://cdn.xxl.thumbs.canstockphoto.dk/glade-agerdyrker-eps-vector_csp4325798.jpg';
     } else if (email === 'admin@example.com') {
       return 'https://www.logolynx.com/images/logolynx/s_23/23938578fb8d88c02bc59906d12230f3.png';
     } else {
