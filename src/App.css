@@ -98,26 +98,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.sign-in {
-  position: relative;
-  color: #282c34;
-  background: white;
-  max-width: 400px;
-  margin: 0 auto;
-  margin-bottom: 5rem;
-}
-
-.sign-in::after {
-  position: absolute;
-  content: "";
-  left: -200px;
-  right: -200px;
-  bottom: -60px;
-  height: 2px;
-  background-color: #ddd;
-  border-radius: 5px;
-}
-
 .login-page form button {
   margin: 0 auto;
 }
@@ -126,17 +106,30 @@ button:disabled {
   display: block;
   color: #fff;
   font-size: 1.25rem;
+  margin: 0 auto;
   margin-bottom: .75rem;
+  font-weight: bold;
+  width: 500px;
+  text-align: left;
 }
 
 .login-page input {
   width: 500px;
   margin-bottom: 1.5rem;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 .login-page button {
   display: block;
+}
+
+.login-page p {
+  text-align: center;
+  max-width: unset;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
 }
 
 ul,
@@ -163,6 +156,7 @@ p {
 .message p {
   margin-top: 5px;
   width: fit-content;
+  text-align: left;
 }
 
 .sent {

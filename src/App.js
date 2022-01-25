@@ -54,21 +54,30 @@ function SignIn() {
 
   return (
     <div className="login-page">
-      <button className="sign-in" onClick={signInWithGoogle}>
+      {/* <button className="sign-in" onClick={signInWithGoogle}>
         Sign in with Google
-      </button>
+      </button> */}
 
       <form onSubmit={handleEmailSubmit} id="login-email">
         <h2
           style={{
             color: '#fff',
-            marginTop: '2rem',
-            marginBottom: '2rem',
-            fontSize: '1.75rem'
+            fontSize: '2.5rem',
+            margin: '0',
+            marginBottom: '1rem'
           }}
         >
-          Login with email and password
+          Login
         </h2>
+        <p>If you don't have an account, <a style={{
+          color: 'inherit'
+        }} href="mailto:eliasbruhn123@gmail.com?subject=Regarding new account on BossElijah's chat&body=Hello BossElijah's chat team, %0D%0A %0D%0A I would like to request a new account for https://bosselijah-chat.netlify.com %0D%0A %0D%0A My email address is: ……………… %0D%0A I want my password to be: ………………">contact me</a>.</p>
+        <p style={{
+          marginBottom: '1rem'
+        }}>Or login with <span onClick={signInWithGoogle} style={{
+          cursor: 'pointer',
+          textDecoration: 'underline'
+        }}>Google</span></p>
         <label htmlFor="email">Email</label>
         <input type="email" name="email" placeholder="email@example.com…" />
         <label htmlFor="password">Password</label>
@@ -159,7 +168,7 @@ function ChatMessage(props) {
             <img
               src={
                 photoURL ||
-                'https://blog.alliedmarketresearch.com/images/user_icon.png'
+                'https://www.w3schools.com/howto/img_avatar.png'
               }
               alt="Profile pic"
             />
