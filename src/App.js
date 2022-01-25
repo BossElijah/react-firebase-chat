@@ -8,6 +8,7 @@ import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { format, fromUnixTime } from 'date-fns';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCEEK7yo4xy5lMIH8z8WZ9dWCYWdfnF2cE',
@@ -54,10 +55,6 @@ function SignIn() {
 
   return (
     <div className="login-page">
-      {/* <button className="sign-in" onClick={signInWithGoogle}>
-        Sign in with Google
-      </button> */}
-
       <form onSubmit={handleEmailSubmit} id="login-email">
         <h2
           style={{
@@ -69,15 +66,34 @@ function SignIn() {
         >
           Login
         </h2>
-        <p>If you don't have an account, <a style={{
-          color: 'inherit'
-        }} href="mailto:eliasbruhn123@gmail.com?subject=Regarding new account on BossElijah's chat&body=Hello BossElijah's chat team, %0D%0A %0D%0A I would like to request a new account for https://bosselijah-chat.netlify.com %0D%0A %0D%0A My email address is: ……………… %0D%0A I want my password to be: ………………">contact me</a>.</p>
-        <p style={{
-          marginBottom: '1rem'
-        }}>Or login with <span onClick={signInWithGoogle} style={{
-          cursor: 'pointer',
-          textDecoration: 'underline'
-        }}>Google</span></p>
+        <p>
+          If you don't have an account,&nbsp;
+          <a
+            style={{
+              color: 'inherit'
+            }}
+            href="mailto:eliasbruhn123@gmail.com?subject=Regarding new account on BossElijah's chat&body=Hello BossElijah's chat team, %0D%0A %0D%0A I would like to request a new account for https://bosselijah-chat.netlify.com %0D%0A %0D%0A My email address is: ……………… %0D%0A I want my password to be: ………………"
+          >
+            contact me
+          </a>
+          .
+        </p>
+        <p
+          style={{
+            marginBottom: '1rem'
+          }}
+        >
+          Or login with{' '}
+          <span
+            onClick={signInWithGoogle}
+            style={{
+              cursor: 'pointer',
+              textDecoration: 'underline'
+            }}
+          >
+            Google
+          </span>
+        </p>
         <label htmlFor="email">Email</label>
         <input type="email" name="email" placeholder="email@example.com…" />
         <label htmlFor="password">Password</label>
@@ -118,7 +134,7 @@ function ChatRoom() {
 
     await messagesRef.add({
       text: formValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      createdAt: new Date(),
       uid,
       photoURL,
       displayName,
@@ -156,7 +172,7 @@ function ChatRoom() {
 }
 
 function ChatMessage(props) {
-  const { text, uid, photoURL, displayName, email } = props.message;
+  const { text, uid, photoURL, displayName, email, createdAt } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
@@ -166,10 +182,7 @@ function ChatMessage(props) {
         <div className="message-container">
           <div className="author-details">
             <img
-              src={
-                photoURL ||
-                'https://www.w3schools.com/howto/img_avatar.png'
-              }
+              src={photoURL || 'https://www.w3schools.com/howto/img_avatar.png'}
               alt="Profile pic"
             />
             <span
@@ -180,6 +193,9 @@ function ChatMessage(props) {
               {displayName || email}
             </span>
           </div>
+          <span className="time">
+            {format(fromUnixTime(createdAt?.seconds), 'dd/MM/yyyy — HH:mm:ss')}
+          </span>
           <p>{text}</p>
         </div>
       </div>
