@@ -15,12 +15,9 @@ const ChatMessage = props => {
           <div className="author-details">
             <img src={findImgUrl(photoURL, email)} alt="Profile pic" />
             <span className="display-name">
-              {findDisplayName(displayName, email)}
+              {findDisplayName(displayName, email)} — {format(fromUnixTime(createdAt?.seconds), 'HH:mm')}
             </span>
           </div>
-          <span className="time">
-            {format(fromUnixTime(createdAt?.seconds), 'dd/MM/yyyy — HH:mm:ss')}
-          </span>
           <p>{text}</p>
         </div>
       </div>

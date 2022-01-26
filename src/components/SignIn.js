@@ -61,7 +61,7 @@ const SignIn = () => {
           <br />
           {errorMessage}
         </div>
-        <button type="submit">Login</button>
+        <button className="sign-in" type="submit">Login</button>
       </form>
     </div>
   );

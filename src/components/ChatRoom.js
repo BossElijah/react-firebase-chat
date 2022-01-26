@@ -14,6 +14,7 @@ const ChatRoom = () => {
 
   const sendMessage = async e => {
     e.preventDefault();
+    setFormValue('');
 
     const { uid, photoURL, displayName, email } = auth.currentUser;
 
@@ -25,8 +26,6 @@ const ChatRoom = () => {
       displayName,
       email
     });
-
-    setFormValue('');
   };
 
   useEffect(() => {
@@ -46,6 +45,7 @@ const ChatRoom = () => {
           value={formValue}
           onChange={e => setFormValue(e.target.value)}
           placeholder="Write something…"
+          className="send-message"
         />
 
         <button type="submit" disabled={!formValue}>
