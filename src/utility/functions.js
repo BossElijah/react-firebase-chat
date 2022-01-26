@@ -29,6 +29,8 @@ export const findDisplayName = (displayName, email) => {
     return 'Natha';
   } else if (email === 'joseph@lfpost.dk') {
     return 'Joffy';
+  } else if (email === 'entertainer@example.com') {
+    return 'Chat Entertainer';
   } else if (email) {
     return email;
   } else {

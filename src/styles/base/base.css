@@ -1,0 +1,32 @@
+:root {
+  --theme-color: rgb(0, 70, 128);
+  --main-width: 500px;
+  --header-height: 60px;
+  --send-form-height: 60px;
+}
+
+body {
+  background-color: rgba(0, 70, 128, 0.25);
+}
+
+.App {
+  margin: 0 auto;
+}
+
+button {
+  border: none;
+  color: #333;
+  padding: 15px 32px;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.App section {
+  max-width: var(--main-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgba(0, 70, 128, 0.25);
+  margin: 0 auto;
+}

@@ -4,7 +4,7 @@ import { auth } from './firebase/firebase';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
 import ChatRoom from './components/ChatRoom';
-import './App.css';
+import './styles/styles.css';
 
 const App = () => {
   const [user] = useAuthState(auth);
@@ -19,6 +19,6 @@ const App = () => {
       <section>{user ? <ChatRoom /> : <SignIn />}</section>
     </div>
   );
-}
+};
 
 export default App;

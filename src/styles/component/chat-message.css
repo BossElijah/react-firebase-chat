@@ -1,0 +1,44 @@
+.sent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.message p {
+  max-width: 300px;
+  margin-bottom: 12px;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-top: 5px;
+  width: fit-content;
+  text-align: left;
+  word-break: break-word;
+}
+
+.sent p {
+  color: #fff;
+  background: #0b93f6;
+}
+
+.received p {
+  color: #333;
+  background: #e5e5ea;
+}
+
+.author-details {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 2px 5px;
+}
+
+.display-name {
+  color: #fff;
+}

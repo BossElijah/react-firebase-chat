@@ -11,7 +11,7 @@ const SignIn = () => {
     auth.signInWithPopup(provider);
   };
 
-  const handleEmailSubmit = e => {
+  const handleEmailSubmit = (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
@@ -20,7 +20,7 @@ const SignIn = () => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {})
-      .catch(error => {
+      .catch((error) => {
         setErrorCode(error.code);
         setErrorMessage(error.message);
 
@@ -56,12 +56,16 @@ const SignIn = () => {
           name="password"
           placeholder="Your secret password…"
         />
-        <div className="error-messages">
-          {errorCode}
-          <br />
-          {errorMessage}
-        </div>
-        <button className="sign-in" type="submit">Login</button>
+        {errorMessage && (
+          <div className="error-messages">
+            {errorCode}
+            <br />
+            {errorMessage}
+          </div>
+        )}
+        <button className="sign-in" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );
