@@ -44,14 +44,30 @@ input.send-message {
 }
 
 .send-message-form button {
-  background-color: #fff;
-  padding: 10px 25px;
+  background-color: var(--theme-color);
+  box-shadow: 0 0 11px #fff;
+  padding: 15px;
   border-radius: 25px;
   margin: 10px;
   font-size: 0.75rem;
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s ease;
+}
+
+.send-message-form button:hover {
+  background-color: snow;
 }
 
 .send-message-form button:disabled {
+  background-color: transparent;
   cursor: not-allowed;
-  background-color: #ddd;
+  opacity: 0.75;
+}
+
+.send-img {
+  width: 30px;
+  height: 30px;
 }

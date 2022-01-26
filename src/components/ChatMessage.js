@@ -12,7 +12,7 @@ const ChatMessage = (props) => {
     <>
       <div className={`message ${messageClass}`}>
         <div className="author-details">
-          <img src={findImgUrl(photoURL, email)} alt="Profile pic" />
+          <img className="author-img" src={findImgUrl(photoURL, email)} alt="Profile pic" />
           <span className="display-name">
             {findDisplayName(displayName, email)} —{' '}
             {format(fromUnixTime(createdAt?.seconds), 'HH:mm')}

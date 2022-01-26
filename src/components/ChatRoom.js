@@ -48,8 +48,8 @@ const ChatRoom = () => {
           className="send-message"
         />
 
-        <button type="submit" disabled={!formValue}>
-          SEND
+        <button type="submit" disabled={!formValue || !formValue.replace(/\s/g, '').length}>
+          <img className="send-img" src="/send.png" alt="Send message." />
         </button>
       </form>
     </>
