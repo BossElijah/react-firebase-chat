@@ -2,6 +2,7 @@ main {
   padding: 10px;
   height: calc(100vh - (var(--header-height) + var(--send-form-height)));
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 main::-webkit-scrollbar {

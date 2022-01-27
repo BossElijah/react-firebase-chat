@@ -2,17 +2,17 @@ export const findImgUrl = (photoURL, email) => {
   if (photoURL) {
     return photoURL;
   } else if (email === 'elias@lfpost.dk') {
-    return 'https://bosselijah-chat.netlify.app/logo.png';
+    return 'profile-photos/elias.png';
   } else if (email === 'joseph@lfpost.dk') {
-    return 'https://cdn.xxl.thumbs.canstockphoto.dk/glade-agerdyrker-eps-vector_csp4325798.jpg';
+    return 'profile-photos/joseph.webp';
   } else if (email === 'nathanael@lfpost.dk') {
-    return 'https://media.musiciansfriend.com/is/image/MMGS7/2016-Hummingbird-Square-Shoulder-Dreadnought-Acoustic-Electric-Guitar-Heritage-Cherry/J24259000001000-00-1600x1600.jpg';
+    return 'profile-photos/natha.webp';
   } else if (email === 'simeon@lfpost.dk') {
-    return 'https://lh3.googleusercontent.com/a-/AOh14GgffEPPuoKjp6Twyu9hnNUXM8G4CenTYCbHHLThOg=s96-c';
+    return 'profile-photos/simeon.png';
   } else if (email === 'admin@example.com') {
-    return 'https://www.logolynx.com/images/logolynx/s_23/23938578fb8d88c02bc59906d12230f3.png';
+    return 'profile-photos/admin.png';
   } else {
-    return 'https://www.w3schools.com/howto/img_avatar.png';
+    return 'profile-photos/default.png';
   }
 };
 

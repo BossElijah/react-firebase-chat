@@ -6,14 +6,6 @@ import SignOut from './components/SignOut';
 import ChatRoom from './components/ChatRoom';
 import './styles/styles.css';
 
-let blurred = false;
-window.onblur = () => {
-  blurred = true;
-};
-window.onfocus = () => {
-  blurred && window.location.reload();
-};
-
 setInterval('window.location.reload()', 3600000);
 
 const App = () => {
