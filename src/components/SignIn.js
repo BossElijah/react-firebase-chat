@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
-import firebase from 'firebase/app';
 import { auth } from '../firebase/firebase';
 
 const SignIn = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [errorCode, setErrorCode] = useState('');
-
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  };
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
@@ -41,12 +35,6 @@ const SignIn = () => {
             contact me
           </a>
           .
-        </p>
-        <p className="sign-in-google">
-          Or login with{' '}
-          <span className="google-span" onClick={signInWithGoogle}>
-            Google
-          </span>
         </p>
         <label htmlFor="email">Email</label>
         <input type="email" name="email" placeholder="email@example.com…" />
