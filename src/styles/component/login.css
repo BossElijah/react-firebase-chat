@@ -44,6 +44,7 @@ a {
   color: #333;
   outline: none;
   border: none;
+  border-radius: 15px;
   width: calc(var(--main-width) - 50px);
   margin-bottom: 1.5rem;
   padding: 1rem;

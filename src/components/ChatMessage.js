@@ -2,6 +2,7 @@ import { format, fromUnixTime } from 'date-fns';
 import React from 'react';
 import { auth } from '../firebase/firebase';
 import { findDisplayName, findImgUrl } from '../utility/functions';
+import Tooltip from './Tooltip';
 
 const ChatMessage = (props) => {
   const { text, uid, photoURL, displayName, email, createdAt } = props.message;
@@ -18,7 +19,7 @@ const ChatMessage = (props) => {
             {format(fromUnixTime(createdAt?.seconds), 'HH:mm')}
           </span>
         </div>
-        <p>{text}</p>
+        <Tooltip date={createdAt?.seconds} text={text} />
       </div>
     </>
   );
